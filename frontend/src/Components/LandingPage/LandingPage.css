@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+.landing-page {
+    text-align: center;
+    margin-top: 0;
+}
+
+.landing-header {
+    background-color: #2d6746;
+    color: rgb(255, 255, 255);
+    padding: 2px;
+    border-radius: 36px;
+}
+
+.landing-header h1 {
+    margin: 10px;
+}
+
+.landing-header nav ul {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.landing-header nav ul li {
+    display: inline;
+}
+
+.landing-header nav ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.hero {
+    background-color:transparent;
+    color: white;
+    padding: 50px 20px;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    cursor: pointer;
+    font-size: 16px;
+    color: #024210;
+}
+
+.default-hero-message {
+    position: relative;
+    z-index: 1;
+    
+}
+
+.hero-content {
+    position: relative;
+    top: -100px;
+    opacity: 0;
+    transition: top 0.5s ease-in-out, opacity 0.5s ease-in-out;
+    z-index: 2;
+}
+
+.hero:hover .default-hero-message {
+    display: none;
+}
+
+.hero:hover .hero-content {
+    top: 0;
+    opacity: 1;
+}
+
+.cta-button {
+    background-color: #fff;
+    color: #4CAF50;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.info-boxes {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 40px 20px;
+}
+
+.info-box {
+    background-color: rgb(5, 113, 48);
+    color:#e6ffe6;
+    border-radius: 8px;
+    padding: 20px;
+    width: 200px;
+    margin: 20px;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-box:hover {
+    transform: scale(1.05);
+    background-color: #e6ffe6;
+    color: #024210;
+    cursor: pointer;
+}
+
+.about,
+.services,
+.contact {
+    padding: 40px 20px;
+}
+
+.landing-footer {
+    background-color: #2e8b57;
+    color: white;
+    padding: 10px;
+}
