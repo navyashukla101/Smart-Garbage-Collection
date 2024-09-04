@@ -1,34 +1,61 @@
 import React, { useState } from 'react';
-import './App.css';  
-import LoginRegister from "./Components/LoginRegister/LoginRegister";
-import LandingPage from "./Components/LandingPage/LandingPage"; 
+import './App.css';
+import AdminLogin from "./Components/LoginRegister/LoginAdmin"; // Component for Admin login
+import LoginRegister from "./Components/LoginRegister/LoginRegister"; // Component for User login/register
+import RiderLoginRegister from "./Components/LoginRegister/LoginRegRider"; // Component for Rider login/register
+import LandingPage from "./Components/LandingPage/LandingPage"
 
 function App() {
-  const [showLandingPage, setShowLandingPage] = useState(true); 
+  const [selectedRole, setSelectedRole] = useState(''); // State to manage selected role
 
-  return (
+  const renderContent = () => {
+    switch (selectedRole) {
+      case 'Admin':
+        return <AdminLogin />;
+      case 'User':
+        return <LoginRegister/>;
+      case 'Rider':
+        return <RiderLoginRegister />;
+      default:
+        return <LandingPage/>;
+    }
+  };
+
+    return (
     <div>
       <nav>
-        <button 
-          onClick={() => setShowLandingPage(true)} 
-          className="nav-button"
-        >
-          Home
-        </button>
-        <button 
-          onClick={() => setShowLandingPage(false)} 
-          className="nav-button"
-        >
-          Sign Up / Login
-        </button>
+        {selectedRole !== 'Home' ? (
+          <button 
+            onClick={() => setSelectedRole('Home')} 
+            className="nav-button"
+          >
+            Home
+          </button>
+        ) : (
+          <>
+            <button 
+              onClick={() => setSelectedRole('Admin')} 
+              className="nav-button"
+            >
+              Admin
+            </button>
+            <button 
+              onClick={() => setSelectedRole('User')} 
+              className="nav-button"
+            >
+              User
+            </button>
+            <button 
+              onClick={() => setSelectedRole('Rider')} 
+              className="nav-button"
+            >
+              Rider
+            </button>
+          </>
+        )}
       </nav>
-    
 
-      {showLandingPage ? (
-        <LandingPage />
-      ) : (
-        <LoginRegister />
-      )}
+      {renderContent()}
     </div>
   );
 }
